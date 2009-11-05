@@ -1,0 +1,283 @@
+% \VignetteIndexEntry{cusp package hands on tutorial examples}
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{thumbpdf,amsmath}
+\usepackage{graphicx,hyperref}
+\usepackage{amssymb,amscd,url}
+\usepackage{hyperref}
+\usepackage{epstopdf}
+\usepackage[utf8]{inputenc}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+
+
+
+
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\pkg}[1]{{\bf #1}}
+\newcommand{\proglang}[1]{{\sf #1}}
+\newcommand{\dQuote}[1]{``#1''}
+\newcommand{\sQuote}[1]{`#1'}
+
+
+\title{Hands on cusp package tutorial}
+\author{Raoul P. P. P. Grasman}
+%\date{}			% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Introduction}
+
+The cusp package provides routines for fitting a cusp catastrophe model as suggested by  (Cobb, 1978). The full documentation of the package can be found in the vignette ``Fitting the Cusp Catastrophe in \proglang{R}: A \pkg{cusp}-Package Primer'' included with the package.
+
+\section{Getting started}
+
+Load the library with the statement
+<<>>=
+library(cusp)
+@
+
+
+\section{The Zeeman data}
+\begin{figure}[tb]
+   \centering
+   \includegraphics[width=5cm]{./DSC02462.JPG} % requires the graphicx package
+   \caption{Catastrophe machine that was used to collect the data in \code{zeeman2}}
+   \label{fig:foto}
+\end{figure}
+
+
+
+We analyze three data sets that were obtained with three different instances of a Zeeman catastrophe machine. This device consists of a wheel is tethered by an elastic chord to a fixed point. For sake of reference let the \emph{central axis} be defined as the axis parallel to the line between the fixed point and the center of the wheel. Another elastic is also attached to the wheel on one end, while the other end is moved about in the \sQuote{control plane} area opposite to the fixed point. The shortest distance between the strap point on the wheel and the central axis is recorded as a function of the position in the control plane. (In the original machine the angle between this axis and the line through the wheel center and the strap point is used.) See \href{http://www.math.sunysb.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html}{http://www.math.sunysb.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html} for a vivid demonstration. The behavior of the Zeeman catastrophe machine is archetypal for the deterministic Cusp Catastrophe. 
+
+
+<<label=figZeemanMachineSchema,echo=FALSE>>=
+plot.new()
+plot.window(c(-1.05,1.05),c(-1.1,1))
+rect(-.25,-1,.25,-.5, col=rgb(.3,.6,.5,.1),border=NA) 
+text(.25,-.75, "control plane", pos=4, offset=1)
+arrows(-.25,-1,-.25,-.75, len=.1, lwd=.5)            # y arrow
+text(-.25,-.875,"y",pos=2)
+arrows(-.25,-1,   0,  -1, len=.1, lwd=.5)            # x arrow
+text(-.125,-1,"x",pos=1)
+points(0, 0.75, pch=20, cex=2)                       # fixed point
+text(0,.75,"fixed point",pos=4, offset=1)
+abline(v=0)                                          # central axis
+text(0,1,"central axis",pos=4, offset=0.2)
+y = seq(0,2*pi,len=300)
+lines(.3*cos(y),.3*sin(y))                           # circle
+arrows(.3*cos(y[30]), .3*sin(y[30]),  .0,  0.75, len=0, lwd=3, col="gray") #coord1
+arrows(.3*cos(y[30]), .3*sin(y[30]), .15, -0.75, len=0, lwd=3, col="gray") #coord2
+points(.15, -.75, pch=20, col=2)                      # control point
+points(0,0,pch=20) # circle center
+points(.3*cos(y[30]),.3*sin(y[30]), pch=1)           # strap point
+text(.3*cos(y[30]),.3*sin(y[30]), "strap point", pos=4, offset=.5)
+arrows(.3*cos(y[30]), .3*sin(y[30]), 0, .3*sin(y[30]), col=4, len=.1)
+text(0.5*.3*cos(y[30]),.3*sin(y[30]), "z", pos=1, offset=.5, col=4)
+@
+\begin{figure}
+\begin{center}
+<<label=figZeemanMachineSchema,fig=TRUE,echo=FALSE>>=
+<<figZeemanMachineSchema>>
+@
+\end{center}
+\caption{Catastrophe machine used for the data set \code{zeeman1} (left). Schematic Zeeman machine and the variables available in the data frames (right).}
+\label{fig:zeemanschema}
+\end{figure}
+
+The data sets were obtained from 3 different physical instances of this machine, made by different people.
+
+Measurements from this machine will be made with measurement errors, e.g., due to parallax, friction, writing mistakes etc. The measurements will fit the following model, the we will dub the measurement error model,
+\begin{equation}\label{eq:measerrmodel}
+	y_i = z_i + \epsilon_i, 
+\end{equation}
+where $\epsilon_i$ is a zero mean random variable, e.g., $\epsilon \sim N(0,\sigma^2)$ for some $\sigma^2$, and $z_i$ is one of the extremal real roots of the cusp catastrophe equation
+$$
+	\alpha_i + \beta_i z - z^3 = 0.
+$$
+Note that this is quite different from Cobb's conceptualization of the stochastic cusp catastrophe, in which
+$$ 
+	y_i \sim \Psi\,e^{\alpha_i y + \beta_iy^2 - {1\over 4}y^4}.
+$$
+where the right hand side is the state density of the {\em stochastic} differential equation \begin{equation}\label{eq:cobbsdemodel} dY = (\alpha_i + \beta_i z - z^3)dt + dW(t), \end{equation} where $W(t)$ is a Wiener process.
+
+The cusp package is intended for the latter model (i.e., for Cobb's stochastic catastrophe model). However, the data from the Zeeman catastrophe machine below show that it is also quite suitable for the former model.
+
+
+\subsection{\code{zeeman1}}
+The first data set
+<<zeeman1>>=
+data(zeeman1)
+nrow(zeeman1)
+head(zeeman1)
+@
+consists of \Sexpr{nrow(zeeman1)} observations from experiments with the machine.
+
+
+The columns of \code{zeeman1} respectively contain the value on the asymmetry axis which is orthogonal to the central axis (\code{x}), the value of the bifurcation variable which is paralel to the central axis (\code{y}), and state variable, the shortest distance from the wheel strap point to the central axis.
+Figure \ref{fig:zeemanschema} displays these coordinates.
+
+While thus the asymmetry and bifurcation variables are known, namely \code{x} and \code{y} respectively, we fit the model where each parameter is regressed on both of the control variables:
+<<fit1zeeman1>>=
+fit1.1 = cusp(y~z, alpha~x+y, beta~x+y, zeeman1)
+summary(fit1.1)
+@
+The summary table indicates that the regression coefficients \code{a[(Intercept)]}, \code{a[y]}, \code{b[x]}, and \code{w[(Intercept)]} are non-significant suggesting that they are not required in the model. We therefore fit the model again, leaving these regressors out of the model:
+<<fit2zeeman1>>=
+fit1.2 = cusp(y~z-1, alpha~x-1, beta~y, zeeman1)
+summary(fit1.2) # compare with logistic fit as well
+@
+
+Now all the regression coefficients `are significant'. If we turn attention to the information criteria however, we see that the AIC for the first model  (\Sexpr{round(summary(fit1.1)$r2cusp.aic,3)}) is smaller than the AIC for the second model (\Sexpr{round(summary(fit1.2)$r2cusp.aic,3)}). The BIC on the other hand, is larger for the first model (\Sexpr{round(summary(fit1.1)$r2cusp.bic,3)}) compared to the second model (\Sexpr{round(summary(fit1.2)$r2cusp.aic,3)}). Because in the first model especially the intercept for that state model equation is quite small (\code{w[(Intercept)]} = \Sexpr{round(coef(fit1.1)["w[(Intercept)]"],4)}), we relax the second model a bit by allowing for intercept in model equation for $\alpha$ to see if the AIC is smaller
+<<fit3zeeman1>>=
+fit1.3 = cusp(y~z-1, alpha~x, beta~y, zeeman1)
+(sf1.3 <- summary(fit1.3, logist=TRUE))
+@
+The AIC, AICc and BIC are now all smaller than both the first and the second model, and all intercept coefficients `are significant'. 
+
+In the call to \code{summary}, this time  we have set the optional parameter \code{logist} to \code{TRUE}, so that also the logistic model is fitted for a more critical test of the cusp model (see the main vignette and \code{help(cusp.logist)} for details). The information criteria all indicate that the cusp model is to be preferred over the logistic model, even though the \emph{pseudo-$R^2$} is larger for the logistic model (\Sexpr{round(sf1.3$r2log.r.squared,4)}) than for the cusp model (\Sexpr{round(sf1.3$r2cusp.r.squared,4)}). (See for a discussion of the \emph{pseudo-}$R^2$ the main vignette.)
+
+Figure \ref{fig:fit2zeeman1} displays a diagnostic plot of the last model that was generated with 
+<<label=figfit3zeeman1>>=
+plot(fit1.3)
+@
+\begin{figure}
+\begin{center}
+<<label=figfit3zeeman1,fig=TRUE,echo=TRUE>>=
+<<figfit3zeeman1>>
+@
+\end{center}
+\caption{Diagnostic plot for the second model fitted to \code{zeeman1}.}
+\label{fig:fit2zeeman1}
+\end{figure}
+
+
+
+\subsection{\code{zeeman2}}
+
+We fit the same models as in the previous case
+<<>>=
+data(zeeman2)
+fit2.1 = cusp(y~z, alpha~x+y, beta~x+y, zeeman2)
+summary(fit2.1)
+@
+Again, the intercept coefficients \code{a[(Intercept)]} and \code{w[(Intercept)]}) are non-significant, as are \code{a[y]} and \code{b[x]}. We leave these coefficients out of the model in the followup fit
+<<>>=
+fit2.2 = cusp(y~z-1, alpha~x-1, beta~y, zeeman2)
+summary(fit2.2)
+@
+The AIC of this reduced model (\Sexpr{round(fit2.2$aic,4)}) is indeed smaller than the AIC of the previous model (\Sexpr{round(fit2.1$aic,4)}). If for comparison with the model selected for \code{zeeman1} we include \code{a[(Intercept)]} again, this barely reduces the negative log-likelihood, while increasing the AIC. More importantly this coefficient is estimated to be zero. 
+<<>>=
+fit2.3 = cusp(y~z-1, alpha~x, beta~y, zeeman2)
+fit2.3
+@
+
+\subsection{\code{zeeman3}}
+
+We do the same analysis for \code{zeeman3}. 
+<<>>=
+data(zeeman3)
+fit3.1 <- cusp(y~z, alpha~x+y, beta~x+y, zeeman3)
+summary(fit3.1)
+@
+This time all regression coefficients are significant. We still compare with the simplified model used in the other cases to see if the AIC, AICc and BIC might be lower still
+<<>>=
+fit3.2 <- cusp(y~z-1, alpha~x-1, beta~y, zeeman3)
+summary(fit3.2)
+@
+Compared to the previous fit, this model indeed yields a lower AIC, AICc, and BIC and hence is preferred according to the information criteria.
+
+
+
+
+
+%%% ===========================
+
+\section{Simulation}
+
+Sometimes it's useful to be able to simulate data from a model. Two cases are discussed here.
+
+\subsection{Generating data in accordance with Cobb's cusp SDE}
+
+To obtain observations in accordance with Cobb's stochastic cusp catastrophe model in equation \eqref{eq:cobbsdemodel}, the function \code{rcusp} can be used. If for all the observations $\alpha$ and $\beta$ are equal, this is simply done with the statement. Figure \ref{fig:CobbSim1} displays a histogram.
+<<label=hist>>=
+set.seed(423)
+alpha = 0.25
+beta = 2
+n = 1000
+y = rcusp(n, alpha, beta)
+hist(y,80,freq=FALSE)
+curve(dcusp(x, 0.25, 2), min(y)-1, max(y)+1, add=TRUE, col=2)
+@
+\begin{figure}
+\begin{center}
+<<label=fighist,fig=TRUE,echo=FALSE>>=
+<<hist>>
+@
+\end{center}
+\caption{Histogram of \Sexpr{n} observations from Cobb's stochastic cusp catastrophe SDE (as opposed to the deterministic cusp catastrophe) with for each observation $\alpha=\Sexpr{alpha}$ and $\beta=\Sexpr{beta}$.}
+\label{fig:CobbSim1}
+\end{figure}
+The parameters $\alpha$ and $\beta$ can simply be estimated with the statement
+<<>>=
+cusp(y~y-1, alpha~1, beta~1)
+@
+
+If the $\alpha$'s and $\beta$'s are different, e.g., depending on predictive variables, they can be generated for example with the statements
+<<>>=
+x1 = runif(150)
+x2 = runif(150)
+a = c(-2, 4)
+b = c(-1, 4)
+alpha = a[1] + a[2]*x1
+beta  = b[1] + b[2]*x2
+z = Vectorize(rcusp)(1, alpha, beta)
+data <- data.frame(x1, x2, z)
+@
+Estimating the coefficients in \code{a} and \code{b} can then be carried out with, e.g., 
+<<>>=
+fit <- cusp(y ~ z, alpha ~ x1+x2, beta ~ x1+x2, data)
+@
+
+
+\subsection{Generating data in accordance with the measurement error model}
+
+We can generate data in accordance with the measurement error model in equation \eqref{eq:measerrmodel} as follows
+<<generate-measurement-error>>=
+set.seed(423)
+g = expand.grid(seq(-3,3,len=15), seq(-3,3,len=15))
+a = g[,1]; b = g[,2]; idx=cbind(sample(c(1,3),length(a),TRUE), seq(along=a)); 
+s = Vectorize(cusp.extrema)(a,b)[idx]
+y = s + rnorm(length(s),,.3)
+@
+Here \code{g} is a grid of points on the control surface, and \code{cusp.extrema} is used to compute the roots of the cusp equilibrium equation $$\alpha + \beta y^2 - y^3 = 0.$$ The vector of states \code{s} is then constructed by sampling from the smallest and largest roots. The observations \code{y} are then created in accordance with the measurement error model.
+
+It instructive to see a 3D plot of the generated data points generated in this way
+<<label=3Dscatter>>=
+if(require(onion)){
+	p3d(a, b, y, theta=200, phi=10, zlim=c(-4,4)); # try require(rgl); rgl.points(a, b, y) instead
+}
+@
+\begin{figure}
+\begin{center}
+<<label=fig1,fig=TRUE,echo=FALSE>>=
+<<3Dscatter>>
+@
+\end{center}
+\caption{3D scatter plot of cusp equilibrium surface with measurement error}
+\label{fig:1}
+\end{figure}
+
+Note that this measurement model is \emph{not} cusp SDE model of Cobb as described in the paper (the main vignette that comes with the cusp package). Even so, the maximum likelihood method of Cobb, does fit this surface quite well:
+<<>>=
+fit <- cusp(y~y, alpha~a, beta~b)
+summary(fit)
+@
+
+
+\end{document}  
+
