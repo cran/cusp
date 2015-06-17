@@ -6,7 +6,7 @@ function(p, xa, xb, y, alpha = as.matrix(xa) %*% p[1:NCOL(xa)],
     }
     X = cbind(1, (alpha/beta^2 > -50.0) / (1 + exp(-alpha/beta^2)))
     Y = if(is.qr(y)) {y} else {qr(cbind(1,y))}
-    ssrss <- cusp.subspacerss(pred=X, dep=Y); 
+    ssrss <- cusp.subspacerss(predictors = X, dependents = Y); 
 #cat(var(X[,2]), p, ssrss$cor, '\n')
     idx <- c(which(zapsmall(ssrss$cor)<1),1)[1] # index of first non-perfect correlation or 1
     rss <- ssrss$rss[idx]

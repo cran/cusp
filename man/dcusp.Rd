@@ -10,7 +10,8 @@
 }
 \usage{
 dcusp(y, alpha, beta)
-pcusp(y, alpha, beta)
+pcusp(y, alpha, beta, subdivisions = 100, rel.tol = .Machine$double.eps^0.25, 
+            abs.tol = rel.tol, stop.on.error = TRUE, aux = NULL, keep.order = TRUE)
 qcusp(p, alpha, beta)
 rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
 }
@@ -21,6 +22,12 @@ rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
   \item{n}{ number of observations. }
   \item{alpha}{ normal/asymmetry factor value of cusp density }
   \item{beta}{ bifurcation/splitting factor value of cusp density }
+  \item{subdivisions}{See \code{\link{cusp-package}}.}
+  \item{rel.tol}{See \code{\link{cusp-package}}.}
+  \item{abs.tol}{See \code{\link{cusp-package}}.}
+  \item{stop.on.error}{See \code{\link{cusp-package}}.}
+  \item{aux}{See \code{\link{cusp-package}}.}
+  \item{keep.order}{ logical. If true the order of the output values is the same as those of the input values \code{y}}
   %\item{scale}{ depricated } %\code{scale} parameter of \code{metrop}, see Details below }
   %\item{ignore.warnings}{ depricated } %ignore warnings from \code{metrop}? }
 }
@@ -33,7 +40,7 @@ rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
 }
 \value{ \code{dcusp} gives the density function, \code{pcusp} gives the distribution function, \code{qcusp} gives the quantile function, and \code{rcusp} generates observations.
 }
-\references{ See \code{\link{cusp-package}} }
+\references{ See \code{\link{cusp-package}}, \code{\link{integrate}} }
 \author{ Raoul Grasman }
 %\note{ ~~further notes~~ 
 %

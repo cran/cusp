@@ -6,11 +6,11 @@
   This function generates a 3D display of the fit (object) of a cusp model.
 }
 \usage{
-cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"], 
-    beta = if (!missing(y) && is.list(y)) y$lin[, "beta"], w = 0.03, 
-    theta = 170, phi = 35, B = 4, Y = 3, Yfloor = -15, 
-    np = 180, n.surface = 30, surface.plot = TRUE, 
-    surf.alpha = 0.75, surf.gamma = 1.5, surf.chroma = 35, surf.hue = 240, 
+cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"],
+    beta = if (!missing(y) && is.list(y)) y$lin[, "beta"], w = 0.03,
+    theta = 170, phi = 35, B = 4, Y = 3, Yfloor = -15,
+    np = 180, n.surface = 30, surface.plot = TRUE,
+    surf.alpha = 0.75, surf.gamma = 1.5, surf.chroma = 35, surf.hue = 240,
     surf.ltheta = 0, surf.lphi = 45, ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -47,6 +47,7 @@ cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"],
 }
 \seealso{ \code{\link{persp}}, \code{\link{plot.cusp}}, \code{\link{cusp3d.surface}} }
 \examples{
+set.seed(123)
 x1 = runif(150)
 x2 = runif(150)
 z = Vectorize(rcusp)(1, 4*x1-2, 4*x2-1)

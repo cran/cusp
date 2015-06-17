@@ -93,7 +93,7 @@ function (object, correlation = FALSE, symbolic.cor = FALSE,
     r2lin <- fit.lm$cor[idx]^2 # first canonical correlation smaller tnan 1
     K <- qr(cbind(object$x$X.y, object$x$X.alpha, object$x$X.beta))$rank #(NROW(fit.lm$xcoef) + NROW(fit.lm$ycoef) - 1) # one constraint is imposed (not 2, it's not cannonical correlation; cancor is just a way of computing)
     r2lin.df <- fnobs - K
-    rss.lm <- cusp.subspacerss(dep=object$x$X.y,pred=cbind(object$x$X.alpha,object$x$X.beta))
+    rss.lm <- cusp.subspacerss(dependents = object$x$X.y, predictors = cbind(object$x$X.alpha,object$x$X.beta))
     idx = which(zapsmall(rss.lm$cor)<1)[1]
 #    r2lin.rss <- (1-r2lin) * sum((crossprod(object$x$X.y) %*% fit.lm$xcoef[,idx])^2) 
     r2lin.rss <- rss.lm$rss[idx]

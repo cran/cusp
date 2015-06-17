@@ -32,7 +32,7 @@ plotCuspBifurcation(object, xlim = a + c(-0.3, 0.3), ylim = b + c(-0.1,
 }
 \details{
   The default hue of each dot is a function of the height of the cusp surface to which it is closest. This is especially usefull in the bifurcation set. Purple dots are higher than green dots.
-  
+
   The size of the dots depends on the density of dots at its location. The higher the density the larger the dot.
 }
 %\value{
@@ -44,12 +44,13 @@ plotCuspBifurcation(object, xlim = a + c(-0.3, 0.3), ylim = b + c(-0.1,
 %}
 \references{ See \code{\link{cusp-package}} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
+%\note{ ~~further notes~~
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
 \seealso{ \code{\link{plot.cusp}}, \code{\link{cusp3d}} }
 \examples{
+set.seed(20)
 # example with regressors
 x1 = runif(150)
 x2 = runif(150)

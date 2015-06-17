@@ -11,7 +11,7 @@ function (x, digits = max(3, getOption("digits") - 3), symbolic.cor = x$symbolic
         names(x$deviance.resid) <- c("Min", "1Q", "Median", "3Q", 
             "Max")
     }
-    print.default(x$deviance.resid, digits = digits, na = "", 
+    print.default(x$deviance.resid, digits = digits, na.print = "", 
         print.gap = 2)
     if (length(x$aliased) == 0) {
         cat("\nNo Coefficients\n")
@@ -63,7 +63,7 @@ function (x, digits = max(3, getOption("digits") - 3), symbolic.cor = x$symbolic
         if (p > 1) {
             cat("\nCorrelation of Coefficients:\n")
             if (is.logical(symbolic.cor) && symbolic.cor) {
-                print(symnum(correl, abbr.col = NULL))
+                print(symnum(correl, abbr.colnames = NULL))
             }
             else {
                 correl <- format(round(correl, 2), nsmall = 2, 

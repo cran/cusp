@@ -26,12 +26,13 @@
 %}
 \references{ See \code{\link{cusp-package}} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
+%\note{ ~~further notes~~
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
 \seealso{ \code{\link{plotCuspBifurcation}}, \code{\link{plotCuspResidfitted}}, \code{\link{plotCuspDensities}}  }
 \examples{
+set.seed(20)
 x1 = runif(150)
 x2 = runif(150)
 z = Vectorize(rcusp)(1, 4*x1-2, 4*x2-1)

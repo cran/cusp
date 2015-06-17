@@ -9,7 +9,7 @@
 \usage{
 \method{summary}{cusp}(object, correlation = FALSE, symbolic.cor = FALSE, logist = FALSE, ...)
 
-\method{print}{summary.cusp}(x, digits = max(3, getOption("digits") - 3), symbolic.cor = x$symbolic.cor, 
+\method{print}{summary.cusp}(x, digits = max(3, getOption("digits") - 3), symbolic.cor = x$symbolic.cor,
     signif.stars = getOption("show.signif.stars"), ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -28,7 +28,7 @@
 
 Correlations are printed to two decimal places (or symbolically): to see the actual correlations print \code{summary(object)$correlation} directly.}
 \value{
-The function \code{summary.cusp} computes and returns a list of summary statistics of the fitted linear model given in object, using the components (list elements) \dQuote{\code{call}} and \dQuote{\code{terms}} from its argument, plus 
+The function \code{summary.cusp} computes and returns a list of summary statistics of the fitted linear model given in object, using the components (list elements) \dQuote{\code{call}} and \dQuote{\code{terms}} from its argument, plus
     \item{ call }{the matched call}
     \item{ terms }{ the \code{\link{terms}} object used.}
 %    \item{ family }{}
@@ -72,28 +72,29 @@ The function \code{summary.cusp} computes and returns a list of summary statisti
     \item{ r2cusp.aicc }{corrected AIC for cusp model fit}
     \item{ r2cusp.bic }{BIC for cusp model fit.}
 }
-\references{ 
+\references{
     Cobb L, Zacks S (1985). \emph{Applications of Catastrophe Theory for Statistical Modeling in the Biosciences.} Journal of the American Statistical Association, 80(392), 793--802.
-    
-    Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhDthesis. 
-    
-    Cobb L (1998). \emph{An Introduction to Cusp Surface Analysis.} 
-        \cr\url{http://www.aetheling.com/models/cusp/Intro.htm}. 
+
+    Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhDthesis.
+
+    Cobb L (1998). \emph{An Introduction to Cusp Surface Analysis.}
+        \cr\url{http://www.aetheling.com/models/cusp/Intro.htm}.
  }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
+%\note{ ~~further notes~~
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
 \seealso{ \code{\link{cusp}}, \code{\link{cusp.logist}} }
 \examples{
+set.seed(97)
 x1 = runif(150)
 x2 = runif(150)
 z = Vectorize(rcusp)(1, 4*x1-2, 4*x2-1)
 data <- data.frame(x1, x2, z)
 fit <- cusp(y ~ z, alpha ~ x1+x2, beta ~ x1+x2, data)
 print(fit)
-summary(fit, logist=TRUE)
+summary(fit, logist=FALSE) # set logist to TRUE to compare to logistic fit
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
