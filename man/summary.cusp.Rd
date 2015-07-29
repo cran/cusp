@@ -78,7 +78,7 @@ The function \code{summary.cusp} computes and returns a list of summary statisti
     Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhDthesis.
 
     Cobb L (1998). \emph{An Introduction to Cusp Surface Analysis.}
-        \cr\url{http://www.aetheling.com/models/cusp/Intro.htm}.
+        \cr http://www.aetheling.com/models/cusp/Intro.htm.
  }
 \author{ Raoul Grasman }
 %\note{ ~~further notes~~

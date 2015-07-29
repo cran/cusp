@@ -1,8 +1,8 @@
 `cusp.fit` <-
-function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs), 
-    start=c(rep(0,qr(x.alpha)$rank),rep(1,qr(x.beta)$rank)/qr(x.beta)$rank,c(rep(0,qr(y)$rank-1),1)), 
+function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs),
+    start=c(rep(0,qr(x.alpha)$rank),rep(1,qr(x.beta)$rank)/qr(x.beta)$rank,c(rep(0,qr(y)$rank-1),1)),
     ..., offset = rep.int(0, nobs), method='L-BFGS-B', optim.method='L-BFGS-B', expected.method = 'delay',
-    lower=if(method=='L-BFGS-B') c(rep(-5,qr(x.alpha)$rank+qr(x.beta)$rank),rep(-50,qr(y)$rank),1e-8) else -Inf, 
+    lower=if(method=='L-BFGS-B') c(rep(-5,qr(x.alpha)$rank+qr(x.beta)$rank),rep(-50,qr(y)$rank),1e-8) else -Inf,
     upper=if(method=='L-BFGS-B') c(rep(+5,qr(x.alpha)$rank+qr(x.beta)$rank),rep(+50,qr(y)$rank), Inf) else +Inf,
     intercept = TRUE){
     x <- as.matrix(x)
@@ -46,9 +46,9 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
     nobs <- NROW(y)
     nvars <- NCOL(x.alpha) + NCOL(x.beta) + NCOL(y)
     EMPTY <- nvars == 0
-    if (is.null(weights)) 
+    if (is.null(weights))
         weights <- rep.int(1, nobs)
-    if (is.null(offset)) 
+    if (is.null(offset))
         offset <- rep.int(0, nobs)
     if (EMPTY) {
         eta <- mat.or.vec(nobs, 2) + offset
@@ -58,7 +58,7 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
         w <- weights^0.5
         residuals <- if(NCOL(mu)==2) (cbind(y,y^2/2) - mu) else (y - mu)
         residuals <- as.matrix(residuals)
-        colnames(residuals) <- colnames(mu) 
+        colnames(residuals) <- colnames(mu)
         good <- rep(TRUE, length(residuals))
         boundary <- conv <- TRUE
         coef <- numeric(0)
@@ -68,11 +68,11 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
         s <- 1
 
 		if(is.loaded("cuspnc")) {
-			fit <- optim(start, cusp.nlogLike.c, 
+			fit <- optim(start, cusp.nlogLike.c,
     	    	y=Q.y, X.alpha=Q.alpha, X.beta=Q.beta,..., method=method, lower=lower, upper=upper, hessian=TRUE);
-		} 
+		}
 		else {
-			fit <- optim(start, cusp.nlogLike, 
+			fit <- optim(start, cusp.nlogLike,
 				y=Q.y, X.alpha=Q.alpha, X.beta=Q.beta,..., method=method, lower=lower, upper=upper, hessian=TRUE);
 		}
     	w = backsolve(R.y, fit$par[1:ranky+ranka+rankb], k = ranky);
@@ -85,7 +85,7 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
         what <- rep(NA, ncol(Y))
         what[Qr.y$pivot[idxy]] <- sgn * backsolve(R.y, fit$par[idxy+ranka+rankb], k = ranky);
 #    	coef <- coefold <- c( # sign of a and w are arbitrary, last entry of w should be positive
-#    	    a = sgn * backsolve(R.alpha, fit$par[1:ranka], k = ranka), rep.int(NA, NCOL(x.alpha)-ranka), 
+#    	    a = sgn * backsolve(R.alpha, fit$par[1:ranka], k = ranka), rep.int(NA, NCOL(x.alpha)-ranka),
 #    	    b = backsolve(R.beta,  fit$par[1:NCOL(Q.beta )+ranka], k = rankb), rep.int(NA, NCOL(x.beta)-rankb),
 #    	    w = sgn * backsolve(R.y, fit$par[1:ranky+ranka+rankb], k = ranky), rep.int(NA, NCOL(Y) - ranky))
         coef <- coefold <- c(a = ahat, b = bhat, w = what)
@@ -96,22 +96,23 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
     	fit$Hessian <- t(RR) %*% fit$hessian %*% RR
     	fit <- c(fit, qr(fit$Hessian))
     	fit$rank <- qr(fit$hessian)$rank # Hessian may become quite 'big' which leads to ill rank estimates
+    	attr(fit$rank, "ranks") = c(ranka = ranka, rankb = rankb, ranky = ranky)
     	conv <- fit$convergence == 0
-#       if (!conv) 
+#       if (!conv)
 #           warning("algorithm did not converge")
     	eps <- 10 * .Machine$double.eps
-        xxnames <- c(paste('a[',xnames.alpha[1:ranka],']',sep=''), 
-                     paste('b[',xnames.beta[1:rankb],']',sep=''), 
+        xxnames <- c(paste('a[',xnames.alpha[1:ranka],']',sep=''),
+                     paste('b[',xnames.beta[1:rankb],']',sep=''),
                      paste('w[',xnames.y[1:ranky],']',sep=''))[fit$pivot]
         eta <- cbind(`alpha`= sgn * Q.alpha %*% fit$par[1:ranka], `beta`=Q.beta %*% fit$par[1:rankb+ranka])
         w <- fit$par[ranka+rankb+1:ranky]
         y <- sgn * Q.y %*% w # the cusp variate that is embeded in the dependents, its sign depends on sgn = sign(w[length(w)])
 
         colnames(eta) <- c('alpha', 'beta')
-        mu <- cusp.expected(eta[,'alpha'], eta[,'beta'], y, method=expected.method)        
+        mu <- cusp.expected(eta[,'alpha'], eta[,'beta'], y, method=expected.method)
     	devold <- dev <- s^2 * sum(dev.resids(y, mu, weights))
         residuals <- s * if(NCOL(mu)==2) (cbind(y,y^2/2)-mu) else (y - mu)
-        colnames(residuals) <- colnames(mu) 
+        colnames(residuals) <- colnames(mu)
         fit$qr <- as.matrix(fit$qr)
         nr <- nvars - ranka - rankb - ranky
         Rmat <- as.matrix(fit$qr)
@@ -146,8 +147,8 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
 	    linear.predictors = eta, deviance = dev, aic = aic.model,
 	    null.deviance = nulldev, iter = if (!EMPTY) fit$counts[1], weights = wt, prior.weights = weights,
 	    df.residual = resdf, df.null = nulldf, y = y, converged = conv,
-	    boundary = FALSE, par = fit$par, Hessian = if (!EMPTY) fit$Hessian, 
-	    hessian.untransformed = if (!EMPTY) fit$hessian, 
+	    boundary = FALSE, par = fit$par, Hessian = if (!EMPTY) fit$Hessian,
+	    hessian.untransformed = if (!EMPTY) fit$hessian,
 	    qr.transform= if (!EMPTY) RR, code= if (!EMPTY) fit$convergence, message= if (!EMPTY) fit$message)
 }
 

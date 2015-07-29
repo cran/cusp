@@ -1,7 +1,8 @@
 Package: cusp
 Type: Package
 Title: Cusp-Catastrophe Model Fitting Using Maximum Likelihood
-Version: 2.3.1
+Version: 2.3.3
+Imports: stats, graphics, grDevices, utils
 Author: Raoul P. P. P. Grasman [aut, cre, cph]
 Maintainer: Raoul Grasman <rgrasman@uva.nl>
 LazyData: yes
@@ -16,7 +17,7 @@ Description: Cobb's maximum likelihood method for cusp-catastrophe modeling
 License: GPL-2
 Repository: CRAN
 Repository/R-Forge/Project: cusp
-Repository/R-Forge/Revision: 18
-Repository/R-Forge/DateTimeStamp: 2015-06-17 10:34:21
-Date/Publication: 2015-06-26 13:34:32
-Packaged: 2015-06-17 10:45:53 UTC; rforge
+Repository/R-Forge/Revision: 21
+Repository/R-Forge/DateTimeStamp: 2015-07-29 11:18:21
+Date/Publication: 2015-08-10 18:31:48
+Packaged: 2015-07-29 11:25:54 UTC; rforge

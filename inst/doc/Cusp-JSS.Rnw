@@ -112,9 +112,9 @@ Its equilibrium points, as a function of the control parameters $\alpha$ and $\b
 \end{equation}
 This equation has one solution if $\delta = 27\alpha - 4\beta^3$, which is known as {\em Cardan's discriminant}, is greater than zero, and has three solutions if $\delta<0$. These solutions are depicted in Figure~\ref{fig:cusp-surface} as a two dimensional surface living in three dimensional space, the floor of which is the two dimensional $(\alpha, \beta)$ coordinate system called the ``control plane''. The set of values of $\alpha$ and $\beta$ for which $\delta=0$ demarcates the {\em bifurcation set}, the cross hatched cusp shaped region on the floor in Figure~\ref{fig:cusp-surface}. From a regression perspective, the cusp equilibrium surface may be conceived of as response surface, the height of which predicts the value of the dependent variable $y$ given the values of the control variables. This response surface has the peculiar property however, that for some values of the control variables $\alpha$ and $\beta$ the surface predicts two possible values instead of one. In addition, this response surface has the unusual characteristic that it ``anti-predicts'' an intermediate value for these values of the control variables---that is, the surface predicts that certain state values, viz. unstable equilibrium states, should not occur \cite{Cobb:1980p4118}. As indicated, the dependent variable $y$ is not necessarily an observed quantity that characterizes the system under study, but is in fact a canonical variable that in general depends on a number of actually measurable dependent variables. Similarly, the control coordinates $\alpha$ and $\beta$ represent canonical coordinates that are dependent on actual measured or controlled independent variables. The $\alpha$ coordinate is called the ``normal'' or ``asymmetry'' coordinate, while the $\beta$ coordinate is called the ``bifurcation'' or ``splitting'' coordinate \cite{Stewart:1983p4517}.
 
-\begin{figure}[tbp]
+\begin{figure}[htbp]
 \begin{center}
-  \hspace{0cm}\includegraphics[width=18cm,angle=0,,bb=0 0 702 702]{plaatjes/cusp-surface-R.pdf} \\ % journal layout preview
+  \hspace{0cm}\includegraphics[width=18cm,angle=0,,viewport=0 0 702 702]{plaatjes/cusp-surface-R.pdf} \\ % journal layout preview
 \caption{Cusp surface.}
 \label{fig:cusp-surface}
 \end{center}
@@ -133,9 +133,9 @@ An alternative approach is constituted by a quantitative evaluation of an actual
 
 A difficulty that arises when constructing empirically testable catastrophe models is the fact that catastrophe theory applies to deterministic systems as described by equation \eqref{eq:dynsys}. Being inherently deterministic, catastrophe theory cannot be applied directly to systems that are subject to random influences which is commonly the case for real physical systems, especially in the biological and behavioral sciences.
 
-\begin{figure}[tbp]
+\begin{figure}[htbp]
 \begin{center}
-  \hspace{0cm}\includegraphics[width=16cm,angle=0,bb=0 0 584 590]{plaatjes/cuspdens-JSSv2.pdf} \\
+  \hspace{0cm}\includegraphics[width=16cm,angle=0,viewport=0 0 584 590]{plaatjes/cuspdens-JSSv2.pdf} \\
 \caption{Shape of cusp density in different regions of the control plane. Bimodality of the density only occurs in the ``bifurcation set'', the cusp shaped shaded area of the control plane.}
 \label{fig:cuspdens}
 \end{center}
@@ -187,7 +187,7 @@ In the \pkg{cusp} package that we describe below, we use the maximum likelihood 
 
 \section{Package description}
 
-\begin{table}[!tdp]
+\begin{table}[!tp]
 \begin{center}
 
  \begin{tabular}{lp{11.25cm}}
@@ -388,7 +388,7 @@ To standardize the data the \code{scale} function of \proglang{R} can be used. T
 
 
 
-\begin{table}[!tdp]
+\begin{table}[!tp]
 \begin{center}
 \begin{tabular}{lrrrr}
 \hline\hline
@@ -409,7 +409,7 @@ To standardize the data the \code{scale} function of \proglang{R} can be used. T
 \label{tab:summarypars1}
 \end{table}
 
-\begin{table}[!bdp]
+\begin{table}[!bp]
 \begin{center}
 \begin{tabular}{rrrrr}
 \hline\hline
@@ -426,9 +426,9 @@ To standardize the data the \code{scale} function of \proglang{R} can be used. T
 \end{table}
 
 
-\begin{figure*}[htbp]
+\begin{figure*}[htp]
 \begin{center}
-  \hspace{0cm}\includegraphics[width=16cm,angle=0,bb=0 0 675 621]{plaatjes/attudefitplot.pdf} \\ % journal layout preview
+  \hspace{0cm}\includegraphics[width=16cm,angle=0,viewport=0 0 675 621]{plaatjes/attudefitplot.pdf} \\ % journal layout preview
 \caption{Diagnostic plot of fit of attitude data obtained with the \code{plot} method that is available in the package.}
 \label{fig:attitudefit}
 \end{center}
@@ -456,7 +456,7 @@ In the second example we use the model specified by \citeA{Oliva:1987p4496} to d
 For testing purposes, \citeauthor{Oliva:1987p4496}
 did not add noise to any of the variables, and hence, the data perfectly comply with their implicit regression equation \eqref{eq:cuspeq}.
 
-\begin{table}[!tdp]
+\begin{table}[!tp]
 \begin{center}
 \renewcommand{\baselinestretch}{1}\normalsize
 \begin{tabular}{lrrrr}
@@ -525,7 +525,7 @@ R> oliva.fit <- cusp(y ~ z1 + z2 - 1,
 \end{CodeChunk}
 Note that in the model there are no intercept coefficients; this is signified in the \code{cusp} call by the \code{-1} added to the formula's (see the formula section of the \proglang{R} Manual, \citeNP{Rmanual} for details). The data are stored in the data frame \code{oliva} in this case. The result from \code{summary(oliva.fit, logist = TRUE)} is displayed in the upper part of Table~\ref{tab:olivapars}.
 
-\begin{table}[tdp]
+\begin{table}[tp]
 \begin{center}
 \begin{tabular}{rrrrr}
 \hline\hline
@@ -544,18 +544,18 @@ Cusp model   &0.7821 &  80.60 &105.93 &116.93 \\
 
 Some of the estimates differ substantially from the true values. This should however not be too surprising given that there are 9 estimated parameters and only 50 observations, yielding a ratio of $55/9 \approx 5.5$ observations per parameter. Six coefficients differ significantly from zero: $a_{x1}$, $a_{x2}$, $b_{y1}$, $b_{y3}$, and both $w_{z1}$ and $w_{z2}$. Using \code{confint} to calculate confidence intervals, we obtain for $a_{x1}$, $a_{x2}$, $b_{y1}$, $b_{y3}$, $w_{z1}$ and $w_{z2}$  95\% confidence intervals of respectively $(-1.26, -0.3979)$, $(0.2864, 1.0676)$, $(0.1749, 0.7197)$, $(0.5658, 1.07)$, $(0.4074, 0.589)$ and $(1.333, 1.669)$, which all neatly cover the true values. The same confidence interval for $b_{y4}$  however, is $(-0.4271, 0.134)$, which does not contain the true value. This may indicate that the estimator is biased. Indeed \citeA{Hartelman:1997p4503} showed in simulations that the estimators are in fact biased. The control factors ($\alpha_i$'s and $\beta_i$'s) were however recovered quite decently: Correlations between the actual $\alpha_i$'s and those predicted by the model fit (which can be obtained with the function \code{predict}) was $.996$%
 , and the correlation between actual $\beta_i$'s and those predicted by the model fit was $.924$. %
-\begin{figure}[bdp]
+\begin{figure}[bp]
 \begin{center}
-  \hspace{0cm}\includegraphics[width=14cm,angle=0,bb=0 0 540 520]{plaatjes/olivabifurcationplot.pdf} \\ % journal layout preview
+  \hspace{0cm}\includegraphics[width=14cm,angle=0,viewport=0 0 540 520]{plaatjes/olivabifurcationplot.pdf} \\ % journal layout preview
 \caption{Fit of simulated data generated conform the \citet{Oliva:1987p4496}
 synthetic data example.}
 \label{fig:olivabifplot}
 \end{center}
 \end{figure}
 
-\begin{figure}[tbdp]
+\begin{figure}[tbp]
 \begin{center}
-  \hspace{0cm}\includegraphics[width=16cm,angle=0,bb=0 0 540 540]{plaatjes/oliva3Dplot-new.pdf} \\ % journal layout preview
+  \hspace{0cm}\includegraphics[width=16cm,angle=0,viewport=0 0 540 540]{plaatjes/oliva3Dplot-new.pdf} \\ % journal layout preview
 \caption{Three dimensional display of the fit of the \citet{Oliva:1987p4496} %Oliva et al.
 synthetic data example generated with the \code{cusp3d} function.}
 \label{fig:oliva3dplot}
