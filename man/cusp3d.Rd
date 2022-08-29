@@ -1,6 +1,5 @@
 \name{cusp3d}
 \alias{cusp3d}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Generate 3D plot of Cusp Catatrophe Model Fit }
 \description{
   This function generates a 3D display of the fit (object) of a cusp model.
@@ -13,7 +12,6 @@ cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"],
     surf.alpha = 0.75, surf.gamma = 1.5, surf.chroma = 35, surf.hue = 240,
     surf.ltheta = 0, surf.lphi = 45, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{y}{ object returned by \code{\link{cusp}} or a vector of observed state values }
   \item{alpha}{ vector of normal/symmetry factor values corresponding to the state values in \code{y} }
@@ -53,7 +51,7 @@ x2 = runif(150)
 z = Vectorize(rcusp)(1, 4*x1-2, 4*x2-1)
 data <- data.frame(x1, x2, z)
 fit <- cusp(y ~ z, alpha ~ x1+x2, beta ~ x1+x2, data)
-\dontrun{
+\donttest{
 cusp3d(fit)
 }
 }

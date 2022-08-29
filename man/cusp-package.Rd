@@ -1,6 +1,5 @@
 \name{cusp-package}
 \alias{cusp-package}
-%\alias{cusp}
 \docType{package}
 \title{
 Cusp Catastrophe Modeling
@@ -38,13 +37,13 @@ L. Cobb and S. Zacks (1985) \emph{Applications of Catastrophe Theory for Statist
 
 P. Hartelman (1996). \emph{Stochastic Catastrophy Theory.} Unpublished PhD-thesis.
 
-H. L. J. van der Maas, R. Kolstein, J van der Pligt (2003). \emph{Sudden Transitions in Attitudes}, Sociological Methods \& Research, 32:125-152.
+H. L. J. van der Maas, R. Kolstein, and J van der Pligt (2003). \emph{Sudden Transitions in Attitudes}, Sociological Methods and Research, 32:125-152.
 
-Oliva, DeSarbo, Day, \& Jedidi. (1987) \emph{GEMCAT : A General Multivariate Methodology for Estimating Catastrophe Models}, Behavioral Science, 32:121-137.
+Oliva, DeSarbo, Day, and Jedidi. (1987) \emph{GEMCAT : A General Multivariate Methodology for Estimating Catastrophe Models}, Behavioral Science, 32:121-137.
 
-R. P. P. P. Grasman, H. L. J. van der Maas, \& E-J. Wagenmakers (2009). \emph{Fitting the Cusp
+R. P. P. P. Grasman, H. L. J. van der Maas, and E-J. Wagenmakers (2009). \emph{Fitting the Cusp
   Catastrophe in R: A cusp Package Primer.} Journal of Statistical Software 32(8), 1-28. URL
- \url{ http://www.jstatsoft.org/v32/i08/}.
+ \url{ https://www.jstatsoft.org/v32/i08/}.
 }
 \keyword{ package }
 %\seealso{

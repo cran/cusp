@@ -1,7 +1,7 @@
 Package: cusp
 Type: Package
 Title: Cusp-Catastrophe Model Fitting Using Maximum Likelihood
-Version: 2.3.3
+Version: 2.3.6
 Imports: stats, graphics, grDevices, utils
 Author: Raoul P. P. P. Grasman [aut, cre, cph]
 Maintainer: Raoul Grasman <rgrasman@uva.nl>
@@ -9,15 +9,11 @@ LazyData: yes
 NeedsCompilation: yes
 Suggests: plot3D
 Description: Cobb's maximum likelihood method for cusp-catastrophe modeling
-        (Grasman, van der Maas, & Wagenmakers, 2009, JSS, 32:8;
-        Cobb, L, 1981, Behavioral Science, 26:1, 75--78).
-        Includes a cusp() function for model fitting, and several
-        utility functions for plotting, and for comparing the
+        (Grasman, van der Maas, and Wagenmakers (2009) <doi:10.18637/jss.v032.i08>;
+        Cobb (1981), Behavioral Science, 26(1), 75-78). Includes a cusp() function for model 
+        fitting, and several utility functions for plotting, and for comparing the
         model to linear regression and logistic curve models.
 License: GPL-2
 Repository: CRAN
-Repository/R-Forge/Project: cusp
-Repository/R-Forge/Revision: 21
-Repository/R-Forge/DateTimeStamp: 2015-07-29 11:18:21
-Date/Publication: 2015-08-10 18:31:48
-Packaged: 2015-07-29 11:25:54 UTC; rforge
+Packaged: 2022-08-28 09:43:25 UTC; r13828
+Date/Publication: 2022-08-29 07:40:06 UTC

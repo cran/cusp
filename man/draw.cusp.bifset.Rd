@@ -1,6 +1,5 @@
 \name{draw.cusp.bifset}
 \alias{draw.cusp.bifset}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Add Cusp Bifurcation Set Diagram to Existing Plot }
 \description{
   Add a miniature bifurcation set for the cusp catastrophe to an existing plot. 
@@ -13,7 +12,6 @@ draw.cusp.bifset(rx = par("usr")[1:2], ry = par("usr")[3:4], xpos = min(rx) +
     border = NA, density = NA, bifurcation.set.fill = gray(0.8), 
     background = hsv(0.1, s = 0.1, alpha = 0.5), ..., X)  
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rx}{ x-axis range of the plot window }
   \item{ry}{ y-axis range of the plot window }
@@ -34,18 +32,13 @@ draw.cusp.bifset(rx = par("usr")[1:2], ry = par("usr")[3:4], xpos = min(rx) +
 \details{
   This function is mainly intended for internal use by \code{cusp.plot}.
 }
-%\value{
-%  ~Describe the value returned
-%  If it is a LIST, use
-%  \item{comp1 }{Description of 'comp1'}
-%  \item{comp2 }{Description of 'comp2'}
-%  ...
-%}
-%\references{ ~put references to the literature/web site here ~ }
+\value{
+No return value. Called for its side effect.
+}
+\references{ \url{http://www.scholarpedia.org/article/Cusp_bifurcation} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
-%
-% ~Make other sections like Warning with \section{Warning }{....} ~
+%\note{ More notes?
+% Make other sections within this like Warning with \section{Warning }{....}
 %}
 \seealso{ \code{\link{plot.cusp}}, \code{\link{polygon}} }
 \examples{

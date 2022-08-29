@@ -1,6 +1,5 @@
 \name{cusp3d.surface}
 \alias{cusp3d.surface}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Generate 3D plot of the Cusp surface }
 \description{
   This function generates a 3D display of the cusp equilibrium surface.
@@ -15,7 +14,7 @@ chroma = 35, surf.alpha = 0.75, gamma = 1.5, bcol = NA,
 lcol = "gray", ltheta = 90, lphi = 70, box = TRUE, 
 axes = FALSE, nticks = 5, ticktype = "simple", floor.lines = TRUE, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{alpha}{ numeric 2-vector specifying the normal/symmetry factor axis range }
   \item{beta}{ numeric 2-vector specifying the bifurcation/splitting factor axis range }

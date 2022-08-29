@@ -1,6 +1,5 @@
 \name{cusp.logist}
 \alias{cusp.logist}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Fit a Logistic Surface Model to Data }
 \description{
   This function fits a logistic curve model to data using maximum likelihood under the assumption of normal errors (i.e., nonlinear least squares). Both the response variable may be modelled by a linear combination of variables and design factors, as well as the normal/asymmetry factor \code{alpha} and bifurction/splitting factor \code{beta}.
@@ -9,7 +8,6 @@
 cusp.logist(formula, alpha, beta, data, ..., model = TRUE, x =
                  FALSE, y = TRUE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula, alpha, beta}{ \code{\link{formula}}s for the response variable and the regression variables (see below) }
   \item{data}{ \code{\link{data.frame}} containing \eqn{n} observations of all the variables named in the formulas }
@@ -68,7 +66,6 @@ Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: Universit
 \seealso{ \code{\link{summary.cusp}} }
 %\examples{
 %}
-
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ models }

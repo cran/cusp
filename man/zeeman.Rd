@@ -27,7 +27,7 @@ data(zeeman3)
   wheel and the axis defined by the fixed point and the control plane is recorded as a 
   function of the position in the control plane. (In the original machine the angle 
   between this axis and the line through the wheel center and the strap point is used.) 
-  See \url{http://www.math.sunysb.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html} 
+  See \url{http://www.math.stonybrook.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html} 
   for a vivid demonstration. These data sets were obtained from 3 different physical 
   instances of this machine, made by different people.
 
@@ -37,18 +37,18 @@ data(zeeman3)
   
   For pictures of the machines, see
   \describe{
-  \item{}{\url{http://purl.oclc.org/net/rgrasman/cusp/zeeman1}}
-  \item{}{\url{http://purl.oclc.org/net/rgrasman/cusp/zeeman2}}
-  \item{}{\url{http://purl.oclc.org/net/rgrasman/cusp/zeeman3}}
+  \item{Zeeman catastrophy machine 1}{\url{https://purl.oclc.org/net/rgrasman/cusp/zeeman1}}
+  \item{Zeeman catastrophy machine 2}{\url{https://purl.oclc.org/net/rgrasman/cusp/zeeman2}}
+  \item{Zeeman catastrophy machine 3}{\url{https://purl.oclc.org/net/rgrasman/cusp/zeeman3}}
   }
 }
 \source{
-  %\url{http://sites.google.com/site/zeemanmachine/data-repository} 
   \describe{
   \item{\code{zeeman1}}{ is due to Noemi Schuurman}
   \item{\code{zeeman2}}{ is due to Karin Visser }
   \item{\code{zeeman3}}{ is due to Mats Nagel & Joris ?}
   }
+  See \url{https://sites.google.com/site/zeemanmachine/data-repository}
 }
 \references{
   Zeeman (1976).

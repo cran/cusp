@@ -1,7 +1,6 @@
 \name{summary.cusp}
 \alias{summary.cusp}
 \alias{print.summary.cusp}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Summarizing Cusp Catastrophe Model Fits }
 \description{
   \code{summary} method for class \dQuote{cusp}
@@ -12,7 +11,6 @@
 \method{print}{summary.cusp}(x, digits = max(3, getOption("digits") - 3), symbolic.cor = x$symbolic.cor,
     signif.stars = getOption("show.signif.stars"), ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{ Object returned by \code{cusp} }
   \item{x}{ \sQuote{\code{summary.cusp}} object }
@@ -78,12 +76,12 @@ The function \code{summary.cusp} computes and returns a list of summary statisti
     Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhDthesis.
 
     Cobb L (1998). \emph{An Introduction to Cusp Surface Analysis.}
-        \cr http://www.aetheling.com/models/cusp/Intro.htm.
+        \cr https://www.aetheling.com/models/cusp/Intro.htm.
  }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~
+%\note{ Any furher points for the user?
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% sections like Warning with \section{Warning }{....} can help to organize
 %}
 \seealso{ \code{\link{cusp}}, \code{\link{cusp.logist}} }
 \examples{

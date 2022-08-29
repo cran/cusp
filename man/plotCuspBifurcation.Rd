@@ -1,6 +1,5 @@
 \name{plotCuspBifurcation}
 \alias{plotCuspBifurcation}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Display Fitted Data on Control Plane of Cusp Catastrophe. }
 \description{
   Displays fitted data points on the control plane of cusp catastrophe. The function takes a fit object obtained with \code{cusp} and generates a plot. Different diagnostic plots may be chosen, or all can be combined in a single plot (the default).
@@ -14,7 +13,7 @@ plotCuspBifurcation(object, xlim = a + c(-0.3, 0.3), ylim = b + c(-0.1,
                  add = FALSE, bifurcation.set.fill = gray(0.8),
                  cex.scale = 15, cex = (cex.scale/log(NROW(ab))) *
                  dens/max(dens), pch = 20)}
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{object}{ object returned by \code{cusp} }
   \item{xlim}{ the x limits (x1, x2) of the plot. }
@@ -35,18 +34,14 @@ plotCuspBifurcation(object, xlim = a + c(-0.3, 0.3), ylim = b + c(-0.1,
 
   The size of the dots depends on the density of dots at its location. The higher the density the larger the dot.
 }
-%\value{
-%  ~Describe the value returned
-%  If it is a LIST, use
-%  \item{comp1 }{Description of 'comp1'}
-%  \item{comp2 }{Description of 'comp2'}
-%  ...
-%}
+\value{
+No return value. Called for its side effect.
+}
 \references{ See \code{\link{cusp-package}} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~
+%\note{ Notes can be added here
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% Organize in sections like Warning with \section{Warning }{....} 
 %}
 \seealso{ \code{\link{plot.cusp}}, \code{\link{cusp3d}} }
 \examples{

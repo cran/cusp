@@ -14,21 +14,21 @@
   \item{what}{ 1-character string giving the type of plot desired. The following values are possible: \code{"all"} for a panel plot with all diagnostic plots, \code{"bifurcation"} for a plot of the bifurcation surface with estimated control parameter locations superimposed, "residual" for a plot of the residuals against fitted values, "densities" for a plot of density estimates conditioned on the estimated location on the bifurcation surface. }
   \item{\dots}{ named arguments that are passed to lower level plotting function }
 }
-%\details{
-%  ~~ If necessary, more details than the description above ~~
-%}
-%\value{
-%  ~Describe the value returned
-%  If it is a LIST, use
-%  \item{comp1 }{Description of 'comp1'}
-%  \item{comp2 }{Description of 'comp2'}
-%  ...
-%}
+\details{
+  These diagnostic plots help to identify problems with the fitted model. In optimal
+  cases the fitted locations in the parameter plane are dispersed over regions of
+  qualitatively different behavior. Within each region the fitted dependent
+  values have a density of the appropriate shape (e.g., bimodal in the bifurcation
+  set).
+}
+\value{
+No return value. Called for its side effect.
+}
 \references{ See \code{\link{cusp-package}} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~
+%\note{ Any notes to user?
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% You can organize into other sections like Warning with \section{Warning }{....} 
 %}
 \seealso{ \code{\link{plotCuspBifurcation}}, \code{\link{plotCuspResidfitted}}, \code{\link{plotCuspDensities}}  }
 \examples{

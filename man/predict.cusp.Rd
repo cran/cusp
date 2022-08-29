@@ -12,7 +12,6 @@ Predicted values based on a cusp model object.
   terms = NULL, na.action = na.pass, pred.var = res.var/weights, weights = 1,
   method = c("delay", "maxwell", "expected"), keep.linear.predictors = FALSE, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{
 Object of class "\code{cusp}"
@@ -100,5 +99,5 @@ predict(fit, newdata)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ models }
+\keyword{ nonlinear }% __ONLY ONE__ keyword per line

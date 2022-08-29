@@ -57,7 +57,7 @@ Of the seven elementary catastrophes in catastrophe theory, the ``cusp'' model i
     University of Amsterdam\\
 	1018KP Amsterdam, the Netherlands\\
 	E-mail: \email{rgrasman@uva.nl}\\
-	URL: \url{http://raoul.socsci.uva.nl/}\\
+	URL: \url{https://raoul.socsci.uva.nl/}\\
 }
 %% It is also possible to add a telephone and fax number
 %% before the e-mail in the following format:
@@ -83,7 +83,7 @@ Catastrophe theory was popularized in the 1970's \cite{Thom:1973p4570,Thom:1975p
 Stochastic formulations of catastrophe theory have been found, and statistical methods have been developed that allow quantitative comparison of catastrophe models with data \cite{Cobb:1978p,Cobb:1980p4593,Cobb:1981p4147,Cobb:1983p4510,Guastello:1982p4420,Oliva:1987p4496,Lange:2000p4495,Wagenmakers:2005p202,Guastello:1992p4418}.
 Of these methods, the maximum likelihood approach of \citeA{Cobb:1980p4593,Cobb:1983p4510} is arguably most appealing for reasons that we discuss in the Appendix~\ref{sect:Appendix}.
 
-In this paper we present an add-on package for the statistical computing environment \proglang{R} \cite{Rmanual} which implements the method of \cite{Cobb:1983p4510}, and extends it in a number of ways. In particular, the approach of \citeA{Oliva:1987p4496} is adopted to allow for a behavioral variable that is embedded in multivariate response space. Furthermore, the implementation incorporates many of the suggestions of \citeA{Hartelman:1997p4503}, and indeed intends to succeed and update the ``\pkg{cuspfit}'' \proglang{FORTRAN} program of that author. The package is available from the Comprehensive \proglang{R} Archive Network at \url{http://CRAN.R-project.org/package=cusp}
+In this paper we present an add-on package for the statistical computing environment \proglang{R} \cite{Rmanual} which implements the method of \cite{Cobb:1983p4510}, and extends it in a number of ways. In particular, the approach of \citeA{Oliva:1987p4496} is adopted to allow for a behavioral variable that is embedded in multivariate response space. Furthermore, the implementation incorporates many of the suggestions of \citeA{Hartelman:1997p4503}, and indeed intends to succeed and update the ``\pkg{cuspfit}'' \proglang{FORTRAN} program of that author. The package is available from the Comprehensive \proglang{R} Archive Network at \url{https://CRAN.R-project.org/package=cusp}
 
 
 \section{Cusp catastrophe}

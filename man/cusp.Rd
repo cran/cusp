@@ -1,7 +1,6 @@
 \name{cusp}
 \alias{cusp}
 \alias{print.cusp}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Fit a Cusp Catatrophe Model to Data }
 \description{
   This function fits a cusp catatrophe model to data using the maximum likelihood method of Cobb. Both the state variable may be modelled by a linear combination of variables and design factors, as well as the normal/asymmetry factor \code{alpha} and bifurction/splitting factor \code{beta}.
@@ -11,7 +10,6 @@ cusp(formula, alpha, beta, data, weights, offset, ..., control =
     glm.control(), method = "cusp.fit", optim.method = "L-BFGS-B", model = TRUE,
     contrasts = NULL)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{ \code{\link{formula}} that models the canonical state variable }
   \item{alpha}{ \code{\link{formula}} that models the canonical normal/asymmetry factor }
@@ -39,7 +37,7 @@ cusp(formula, alpha, beta, data, weights, offset, ..., control =
   The state variable and control parameters can be modelled by specifying a model \code{\link{formula}}: \deqn{\code{y ~ model},} \deqn{\code{alpha ~ model},} \deqn{\code{beta ~ model},} in which \code{model} can be any valid \code{\link{formula}} specified in terms of variables that are present in the \code{data.frame}.
 }
 \value{
-  %~Describe the value returned
+  % Describe the structure of value returned
   List with components
    \item{ coefficients }{Estimated coefficients }
  %  \item{ residuals }{ vector of residuals (observed minus predicted assuming Delay convention) }
@@ -81,9 +79,9 @@ cusp(formula, alpha, beta, data, weights, offset, ..., control =
 }
 \references{ See \link{cusp-package}  }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~
+%\note{ notes to user
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% Make other sections like Warning with \section{Warning }{....}
 %}
 \seealso{ \code{\link{cusp-package}}.
 

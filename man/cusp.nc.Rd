@@ -44,16 +44,17 @@ cusp.nc.vec(alpha, beta, ..., keep.order = FALSE)
     \code{cusp.nc.C} returns a list with vectors with the results obtained from \code{\link{integrate}}. 
     \code{cusp.nc.c} first sorts the input in such a way that the numerical integrals can be evaluated more quickly than in arbitrary order
 }
-%\references{ ~put references to the literature/web site here ~ }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
+%\note{ further notes 
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% Make other sections like Warning with \section{Warning }{....} 
 %}
 \seealso{ \code{\link{pcusp}}, \code{\link{dcusp}} }
-\examples{
-    cusp:::cusp.nc(2,1)
-}
+%\examples{
+%    # dcusp(x,2,1) = exp(2*x + x^2 - x^4/4) / cusp.nc(2,1), hence
+%    # evaluating this at x=0, cusp.nc(2,1) is equal to
+%    1/dcusp(0,2,1)
+%}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ utilities }

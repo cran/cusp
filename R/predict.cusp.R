@@ -29,6 +29,7 @@ function (object, newdata, se.fit = FALSE, interval = c("none",
             .NotYetUsed(intersect(names(match.call()), c("se.fit",
                 "interval", "level", "type", "terms", "pred.var",
                 "weights")), error = TRUE)
+        interval = match.arg(interval)
         if (se.fit || interval != "none") {
           res.var <- (1-summary(object)$r2cusp.r.squared[1]) * var(drop(object$y))
         }

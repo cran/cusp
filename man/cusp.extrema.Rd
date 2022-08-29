@@ -1,6 +1,5 @@
 \name{cusp.extrema}
 \alias{cusp.extrema}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Locate Extrema of Cusp Catastrophe Potential Function }
 \description{
   This function computes the locations of the extrema of the cusp catastrophe potential function.
@@ -8,7 +7,6 @@
 \usage{
 cusp.extrema(alpha, beta)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{alpha}{ (single) value of normal/symmetry factor }
   \item{beta}{ (single) value of bifurcation/splitting factor }
@@ -18,7 +16,7 @@ cusp.extrema(alpha, beta)
 }
 \value{ Ordered vector with locations of extremes.
 }
-%\references{ ~put references to the literature/web site here ~ }
+\references{ \url{http://www.scholarpedia.org/article/Cusp_bifurcation} }
 \author{ Raoul Grasman }
 \note{ Use \code{\link{Vectorize}} to allow for array input. 
 }

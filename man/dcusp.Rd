@@ -3,7 +3,6 @@
 \alias{rcusp}
 \alias{pcusp}
 \alias{qcusp}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Cobb's Cusp Distribution }
 \description{
   Functions for the cusp distribution.
@@ -13,9 +12,9 @@ dcusp(y, alpha, beta)
 pcusp(y, alpha, beta, subdivisions = 100, rel.tol = .Machine$double.eps^0.25, 
             abs.tol = rel.tol, stop.on.error = TRUE, aux = NULL, keep.order = TRUE)
 qcusp(p, alpha, beta)
-rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
+rcusp(n, alpha, beta) 
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{y}{ vector of quantiles }
   \item{p}{ vector of probabilities }
@@ -28,8 +27,6 @@ rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
   \item{stop.on.error}{See \code{\link{cusp-package}}.}
   \item{aux}{See \code{\link{cusp-package}}.}
   \item{keep.order}{ logical. If true the order of the output values is the same as those of the input values \code{y}}
-  %\item{scale}{ depricated } %\code{scale} parameter of \code{metrop}, see Details below }
-  %\item{ignore.warnings}{ depricated } %ignore warnings from \code{metrop}? }
 }
 \details{
   The cusp distribution is defined by \deqn{ f(y) = \Psi \exp(\alpha y + \beta y^2/2 - y^4/4), } where \eqn{\Psi} is the normalizing constant.
@@ -42,11 +39,11 @@ rcusp(n, alpha, beta) %, scale = 4.2, ..., ignore.warnings = FALSE)
 }
 \references{ See \code{\link{cusp-package}}, \code{\link{integrate}} }
 \author{ Raoul Grasman }
-%\note{ ~~further notes~~ 
+%\note{ any other notes go here
 %
-% ~Make other sections like Warning with \section{Warning }{....} ~
+% Make other sections like Warning with \section{Warning }{....}
 %}
-\seealso{ \code{\link{cusp-package}} } %, \code{\link{metrop}} }
+\seealso{ \code{\link{cusp-package}} } 
 \examples{
     # evaluate density and distribution
     dcusp(0,2,3)

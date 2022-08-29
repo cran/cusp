@@ -2,7 +2,6 @@
 \alias{cusp.nlogLike}
 \alias{cusp.nlogLike.c}
 \alias{cusp.logLike}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Negative log-likelihood for Cobb's cusp density}
 \description{
   (Negative) log-likelihood for Cobb's cusp probability density function used by \code{cusp}. This function is not to be called by the user. See \code{help(cusp)}.
@@ -37,11 +36,22 @@ cusp.logLike(p, x, verbose = FALSE)
 	The functions are not to be called by the user directly.
 }
 \seealso{ \code{\link{cusp}}, \link{cusp-package} }
+%\examples{
+%	# y = rcusp(100,1,0)
+%  # cusp.logLike(c(a=1,b=0,w0=0,w1=1),y)
+%  # Note: cusp.logLike is not exported, but can be accessed through the ':::'
+%  # mechanism.
+%  
+%  # A fitted object has a log-likelihood 
+%  set.seed(123)
+%  x1 = runif(150)
+%  x2 = runif(150)
+%  z = Vectorize(rcusp)(1, 4*x1-2, 4*x2-1)
+%  data <- data.frame(x1, x2, z)
+%  fit <- cusp(y ~ z, alpha ~ x1+x2, beta ~ x1+x2, data)
+%  logLike(fit)
+%}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\examples{
-	y = rcusp(100,1,0)
-    cusp:::cusp.logLike(c(a=1,b=0,w0=0,w1=1),y)
-}
 \keyword{ utilities }
 \keyword{ models }% __ONLY ONE__ keyword per line
