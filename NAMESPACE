@@ -14,4 +14,4 @@ S3method(print, cusp)
 S3method(print, summary.cusp)
 S3method(summary, cusp)
 S3method(vcov, cusp)
-
+S3method(format, perc)

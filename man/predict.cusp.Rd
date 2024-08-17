@@ -66,8 +66,7 @@ the points on the cusp surface corresponding to the minimum of the associated po
 \value{
 A vector of predictions. If \code{keep.linear.predictors} the return value has a \code{"data"} attribute
 which links to \code{newdata} augmented with the linear predictors \code{alpha}, \code{beta}, and, if
-\code{method = "delay"}, \code{y}. If \code{method = "expected"}, the expected value from the equilibrium
-distribution of the stochastic process \deqn{dY_t = V'(Y_t;\alpha, \beta)dt + dW_t,} where \eqn{W_t} is
+\code{method = "delay"}, \code{y}. If \code{method = "expected"}, the expected value from the equilibrium distribution of the stochastic process \deqn{dY_t = V'(Y_t;\alpha, \beta)dt + dW_t,} where \eqn{W_t} is
 a Wiener proces (aka Brownian motion) is returned. (This distribution is implemented in
 \code{\link{dcusp}}.)
 }

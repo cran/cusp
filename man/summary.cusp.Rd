@@ -16,7 +16,7 @@
   \item{x}{ \sQuote{\code{summary.cusp}} object }
   \item{correlation}{ logical; if \code{TRUE} the correlation matrix is returned }
   \item{symbolic.cor}{ logical; currently unused }
-  \item{logist}{ logical. If \code{TRUE} a logistic model is fitted for cusp model assesment (see \code{\link{cusp.logist}} for details).}
+  \item{logist}{ logical. If \code{TRUE}, a logistic model is fitted for cusp model assessment (see \code{\link{cusp.logist}} for details).}
   \item{digits}{ numeric; the number of significant digits to use when printing. }
   \item{signif.stars}{ logical. If \code{TRUE}, significance stars are printed for each coefficient. }
   \item{\dots}{ further arguments passed to or from other methods. }
@@ -45,7 +45,7 @@ The function \code{summary.cusp} computes and returns a list of summary statisti
     \item{ resid.name }{ string specifying the convention used in determining the residuals (i.e., "Delay" or "Maxwell").}
     \item{ cov.unscaled }{ the unscaled (dispersion = 1) estimated covariance matrix of the estimated coefficients.}
 %    \item{ cov.scaled }{}
-    \item{ r2lin.r.squared }{\eqn{R^2}, the \sQuote{fraction of variance explained} by the linear regression model \deqn{w_0+w_1 Y_{i1} + \cdots + w_p Y_{ip} = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_q X_{iq} + \epsilon_i,}{w[0]+w[1]*Y[i,1] + ... + w[p]*Y[i,p] = \beta[0]+\beta[1]*X[i,1] + ... + \beta[q]*X[i,q] + \epsilon[i],} where \eqn{Y} containes all explanatory variables for the behavioral states in the cusp model, and \eqn{X} containes all explanatory variables for the control parameters of the cusp model. This is computed from the largest canonical correlation.}
+    \item{ r2lin.r.squared }{\eqn{R^2}, the \sQuote{fraction of variance explained} by the linear regression model \deqn{w_0+w_1 Y_{i1} + \cdots + w_p Y_{ip} = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_q X_{iq} + \epsilon_i,}{w[0]+w[1]*Y[i,1] + ... + w[p]*Y[i,p] = \beta[0]+\beta[1]*X[i,1] + ... + \beta[q]*X[i,q] + \epsilon[i],} where \eqn{Y} contains all explanatory variables for the behavioral states in the cusp model, and \eqn{X} containes all explanatory variables for the control parameters of the cusp model. This is computed from the largest canonical correlation.}
     \item{ r2lin.dev }{ residual sums of squares of the linear model }
     \item{ r2lin.df }{ degrees of freedom for the linear model }
     \item{ r2lin.logLik }{ value of the log-likelihood for the linear model assuming normal errors }
@@ -73,7 +73,7 @@ The function \code{summary.cusp} computes and returns a list of summary statisti
 \references{
     Cobb L, Zacks S (1985). \emph{Applications of Catastrophe Theory for Statistical Modeling in the Biosciences.} Journal of the American Statistical Association, 80(392), 793--802.
 
-    Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhDthesis.
+    Hartelman PAI (1997). \emph{Stochastic Catastrophe Theory.} Amsterdam: University of Amsterdam, PhD thesis.
 
     Cobb L (1998). \emph{An Introduction to Cusp Surface Analysis.}
         \cr https://www.aetheling.com/models/cusp/Intro.htm.

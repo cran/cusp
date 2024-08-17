@@ -18,7 +18,7 @@ axes = FALSE, nticks = 5, ticktype = "simple", floor.lines = TRUE, ...)
 \arguments{
   \item{alpha}{ numeric 2-vector specifying the normal/symmetry factor axis range }
   \item{beta}{ numeric 2-vector specifying the bifurcation/splitting factor axis range }
-  \item{y}{ numeric specifying the iso contours used to render the surface (see detais below) }
+  \item{y}{ numeric specifying the iso contours used to render the surface (see details below) }
   \item{xlim,ylim,zlim}{ numeric 2-vectors (see \code{\link{persp}}) }
   \item{xlab,ylab,zlab,main,sub}{ strings (see \code{\link{persp}}) }
   \item{phi,theta}{ numeric, determine viewing direction (see \code{\link{persp}}) }

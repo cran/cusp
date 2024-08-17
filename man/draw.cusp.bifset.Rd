@@ -27,7 +27,7 @@ draw.cusp.bifset(rx = par("usr")[1:2], ry = par("usr")[3:4], xpos = min(rx) +
   \item{bifurcation.set.fill}{ color for marking the bifurcation set }
   \item{background}{ background color of the cusp surface }
   \item{\dots}{ arguments passed to \code{rect} and \code{polygon} }
-  \item{X}{ \code{data.frame}, depricated }
+  \item{X}{ \code{data.frame}, deprecated }
 }
 \details{
   This function is mainly intended for internal use by \code{cusp.plot}.

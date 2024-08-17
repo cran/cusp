@@ -1,9 +1,9 @@
 \name{cusp}
 \alias{cusp}
 \alias{print.cusp}
-\title{ Fit a Cusp Catatrophe Model to Data }
+\title{ Fit a Cusp Catastrophe Model to Data }
 \description{
-  This function fits a cusp catatrophe model to data using the maximum likelihood method of Cobb. Both the state variable may be modelled by a linear combination of variables and design factors, as well as the normal/asymmetry factor \code{alpha} and bifurction/splitting factor \code{beta}.
+  This function fits a cusp catastrophe model to data using the maximum likelihood method of Cobb. Both the state variable may be modeled by a linear combination of variables and design factors, as well as the normal/asymmetry factor \code{alpha} and bifurction/splitting factor \code{beta}.
 }
 \usage{
 cusp(formula, alpha, beta, data, weights, offset, ..., control =
@@ -34,7 +34,7 @@ cusp(formula, alpha, beta, data, weights, offset, ..., control =
      in which the \eqn{a_j}{a[j]}'s, \eqn{b_j}{b[j]}'s, and \eqn{w_j}{w[j]}'s are estimated by means of maximum likelihood.
      Here, the \eqn{Y_{ij}}{Y[i,j]}'s and \eqn{X_{ij}}{X[i,j]}'s are variables constructed from variables in the data set. Variables predicting the \eqn{\alpha}'s and \eqn{\beta}'s need not be the same.
 
-  The state variable and control parameters can be modelled by specifying a model \code{\link{formula}}: \deqn{\code{y ~ model},} \deqn{\code{alpha ~ model},} \deqn{\code{beta ~ model},} in which \code{model} can be any valid \code{\link{formula}} specified in terms of variables that are present in the \code{data.frame}.
+  The state variable and control parameters can be modeled by specifying a model \code{\link{formula}}: \deqn{\code{y ~ model},} \deqn{\code{alpha ~ model},} \deqn{\code{beta ~ model},} in which \code{model} can be any valid \code{\link{formula}} specified in terms of variables that are present in the \code{data.frame}.
 }
 \value{
   % Describe the structure of value returned

@@ -16,14 +16,14 @@
   \item{\dots}{ additional arguments for method functions.  }
 }
 \details{
-  The variance-covariance matrix is estimated by the inverse of the Hessian matrix of the log-likelhood at the maximum likelihood estimate (\code{vcov}).
+  The variance-covariance matrix is estimated by the inverse of the Hessian matrix of the log-likelihood at the maximum likelihood estimate (\code{vcov}).
 
   Normal theory confidence intervals are computed for all parameters in the cusp model object using \code{vcov} to obtain the standard errors (\code{confint}).
 }
 \value{
     The variance-covariance matrix (\code{vcov}).
     
-    A matrix (or vector) with columns giving lower and upper confidence limits for each parameter. These will be labelled as (1-level)/2 and 1 - (1-level)/2 in % (by default 2.5% and 97.5%) (\code{confint}).
+    A matrix (or vector) with columns giving lower and upper confidence limits for each parameter. These will be labeled as (1-level)/2 and 1 - (1-level)/2 in % (by default 2.5% and 97.5%) (\code{confint}).
 }
 \references{ Seber, Wild (2005) Nonlinear regression. New York: Wiley}
 \author{ Raoul Grasman }

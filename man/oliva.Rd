@@ -35,7 +35,7 @@
 	\deqn{Z_{i2} = (y_i + 0.52 Z_{i1} )/( 1.60).}
 }
 \source{
-  Oliva T, Desarbo W, Day D, Jedidi K (1987). GEMCAT: A general multivariate 
+  Oliva T, DeSarbo W, Day D, Jedidi K (1987). GEMCAT: A general multivariate 
 methodology for estimating catastrophe models. Behavioral Science, 32(2), 121137.
 }
 \references{

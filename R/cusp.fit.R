@@ -140,10 +140,12 @@ function(y,x=rep(1,length(y)), x.alpha=x, x.beta=x.alpha, weights = rep(1, nobs)
     rank <- if (EMPTY) 0 else fit$rank
     resdf <- n.ok - rank
     aic.model <- 2 * fit$value + 2 * rank
+    fam <- quasi()
+    fam$dispersion <- 1 # no dispersion estimated
 	list(coefficients = coef, residuals = residuals, fitted.values = mu,
 	    effects = if (!EMPTY) fit$effects, R = if (!EMPTY) Rmat,
 	    rank = rank, qr = if (!EMPTY) structure(fit[c("qr", "rank",
-	        "qraux", "pivot", "tol")], class = "qr"), family = quasi(),
+	        "qraux", "pivot", "tol")], class = "qr"), family = fam,
 	    linear.predictors = eta, deviance = dev, aic = aic.model,
 	    null.deviance = nulldev, iter = if (!EMPTY) fit$counts[1], weights = wt, prior.weights = weights,
 	    df.residual = resdf, df.null = nulldf, y = y, converged = conv,

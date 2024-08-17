@@ -75,5 +75,5 @@ function(formula, alpha, beta, data, ..., model = TRUE, x = FALSE, y = TRUE){
     fit
 }
 
-`summary.cusp.logist` <- function(x,...) .NotYetImplemented()
+`summary.cusp.logist` <- function(object,...) .NotYetImplemented()
 `plot.cusp.logist` <- function(x,...) .NotYetImplemented()

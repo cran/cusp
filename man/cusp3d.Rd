@@ -1,6 +1,6 @@
 \name{cusp3d}
 \alias{cusp3d}
-\title{ Generate 3D plot of Cusp Catatrophe Model Fit }
+\title{ Generate 3D plot of Cusp Catastrophe Model Fit }
 \description{
   This function generates a 3D display of the fit (object) of a cusp model.
 }
@@ -18,7 +18,7 @@ cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"],
   \item{beta}{ vector of bifurcation/splitting factor values corresponding to the state values in \code{y} }
   \item{w}{ number that specifies the size of the data points plotted on the cusp surface }
   \item{theta,
-  phi}{ angles defining the viewing direction. \code{theta} gives the azimuthal direction and \code{phi} the colatitude. }
+  phi}{ Angles defining the viewing direction: \code{theta} gives the azimuthal direction, and \code{phi} the colatitude. }
   \item{B}{ range of the splitting factor axis }
   \item{Y}{ range of the state variable axis }
   \item{Yfloor}{ location on state variable axis where the control surface is plotted }
@@ -26,12 +26,12 @@ cusp3d(y, alpha = if (!missing(y) && is.list(y)) y$lin[, "alpha"],
   \item{n.surface}{ factor that determines the fineness of the rendered surface }
   \item{surface.plot}{ plot the surface? }
   \item{surf.alpha}{ transparency level of rendered surface }
-  \item{surf.gamma}{ factor that determines the shading of surface facets (\code{surf.gamma}<1 deminishes shading, \code{surf.gamma}>1 exagerates shading) }
+  \item{surf.gamma}{ factor that determines the shading of surface facets (\code{surf.gamma}<1 diminishes shading, \code{surf.gamma}>1 exaggerates shading) }
   \item{surf.chroma,
   surf.hue}{ chroma and hue of surface color (see \code{\link{hcl}}) }
   \item{surf.ltheta,
   surf.lphi}{ the surface is shaded as though it was being illuminated from the direction specified by azimuth \code{surf.ltheta} and colatitude \code{surf.lphi} }
-  \item{\dots}{ named parameters that are pased to \code{\link{persp}} }
+  \item{\dots}{ named parameters that are passed to \code{\link{persp}} }
 }
 \details{
   This function is experimental.

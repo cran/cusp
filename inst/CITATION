@@ -1,21 +1,24 @@
 citHeader("To cite the 'cusp' package in publications use:")
-     
-citEntry(entry="Article",
-         title = "Fitting the Cusp Catastrophe in {R}: A cusp Package Primer",
-         author = personList(as.person("Raoul P. P. P. Grasman"),
-                             as.person("Han L. J. van der Maas"),
-                             as.person("Eric-Jan Wagenmakers")),
-         journal      = "Journal of Statistical Software",
-         year         = "2009",
-         volume       = "32",
-         number       = "8",
-         pages        = "1--27",
-         url          = "https://www.jstatsoft.org/v32/i08/",
-         
-         textVersion = 
-         paste("Raoul P. P. P. Grasman, Han L. J. van der Maas, ",
-               "Eric-Jan Wagenmakers (2009).", 
-               "Fitting the Cusp Catastrophe in R: A cusp Package Primer.",
-               "Journal of Statistical Software 32(8), 1-27.",
-	       "URL https://www.jstatsoft.org/v32/i08/.")
+
+bibentry(
+  bibtype = "Article",
+  title = "Fitting the Cusp Catastrophe in {R}: A cusp Package Primer",
+  author = c(
+    person(given = c("Raoul","P.","P.","P."), family = "Grasman"),
+    person(given = c("Han","L.", "J."), family = "van der Maas"),
+    person(given = c("Eric-Jan","M."), family = "Wagenmakers")
+  ),
+  journal = "Journal of Statistical Software",
+  year = "2009",
+  volume = "32",
+  number = "8",
+  pages = "1--27",
+  url = "https://www.jstatsoft.org/v32/i08/",
+  
+  textVersion = 
+    paste("Raoul P. P. P. Grasman, Han L. J. van der Maas,",
+          "Eric-Jan Wagenmakers (2009).", 
+          "Fitting the Cusp Catastrophe in R: A cusp Package Primer.",
+          "Journal of Statistical Software 32(8), 1-27.",
+          "URL https://www.jstatsoft.org/v32/i08/.")
 )

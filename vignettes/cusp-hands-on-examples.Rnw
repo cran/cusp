@@ -119,7 +119,7 @@ head(zeeman1)
 consists of \Sexpr{nrow(zeeman1)} observations from experiments with the machine.
 
 
-The columns of \code{zeeman1} respectively contain the value on the asymmetry axis which is orthogonal to the central axis (\code{x}), the value of the bifurcation variable which is paralel to the central axis (\code{y}), and state variable, the shortest distance from the wheel strap point to the central axis.
+The columns of \code{zeeman1} respectively contain the value on the asymmetry axis which is orthogonal to the central axis (\code{x}), the value of the bifurcation variable which is parallel to the central axis (\code{y}), and state variable, the shortest distance from the wheel strap point to the central axis.
 Figure \ref{fig:zeemanschema} displays these coordinates.
 
 While thus the asymmetry and bifurcation variables are known, namely \code{x} and \code{y} respectively, we fit the model where each parameter is regressed on both of the control variables:

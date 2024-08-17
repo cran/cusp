@@ -30,7 +30,7 @@ plotCuspBifurcation(object, xlim = a + c(-0.3, 0.3), ylim = b + c(-0.1,
   \item{cex.scale, cex, pch}{ see \code{\link{par}} }
 }
 \details{
-  The default hue of each dot is a function of the height of the cusp surface to which it is closest. This is especially usefull in the bifurcation set. Purple dots are higher than green dots.
+  The default hue of each dot is a function of the height of the cusp surface to which it is closest. This is especially useful in the bifurcation set. Purple dots are higher than green dots.
 
   The size of the dots depends on the density of dots at its location. The higher the density the larger the dot.
 }

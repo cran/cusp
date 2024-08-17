@@ -25,9 +25,9 @@ cusp.nc.vec(alpha, beta, ..., keep.order = FALSE)
   rel.tol, 
   abs.tol,
   stop.on.error,
-  aux}{ arguments used by the internal integration routine of R (see \code{\link{integrate}})}
-  \item{keep.order}{logical, that indicates wether the order of the output should be the same as the order of the input}
-  \item{\dots}{ extra arguments in \code{cusp.nc.c} that are passed to \code{cusp.nc.C} }
+  aux}{ Arguments used by the internal integration routine of R (see \code{\link{integrate}}).}
+  \item{keep.order}{Logical, that indicates whether the order of the output should be the same as the order of the input.}
+  \item{\dots}{ Extra arguments in \code{cusp.nc.c} that are passed to \code{cusp.nc.C}. }
 }
 \details{
 	The function \code{cusp.nc} returns \eqn{\Psi} if \code{mom.order = 0} and \eqn{\Psi} times the moment of order \code{mom.order} otherwise.

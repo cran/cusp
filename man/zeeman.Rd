@@ -14,9 +14,9 @@ data(zeeman3)
 \format{
   A data frame with 150/198/282 observations on the following 3 variables.
   \describe{
-    \item{\code{x}}{a control plane variable that are manipulable by the experimentalist}
-    \item{\code{y}}{a control plane variable that are manipulable by the experimentalist}
-    \item{\code{z}}{the state variable of the machine: the shortest distance to the longitudinal axis of the machine}
+    \item{\code{x}}{A control plane variable that is manipulable by the experimentalist.}
+    \item{\code{y}}{A control plane variable that is manipulable by the experimentalist.}
+    \item{\code{z}}{The state variable of the machine: the shortest distance to the longitudinal axis of the machine.}
   }
 }
 \details{
@@ -27,7 +27,7 @@ data(zeeman3)
   wheel and the axis defined by the fixed point and the control plane is recorded as a 
   function of the position in the control plane. (In the original machine the angle 
   between this axis and the line through the wheel center and the strap point is used.) 
-  See \url{http://www.math.stonybrook.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html} 
+  See \url{https://www.math.stonybrook.edu/~tony/whatsnew/column/catastrophe-0600/cusp4.html} 
   for a vivid demonstration. These data sets were obtained from 3 different physical 
   instances of this machine, made by different people.
 

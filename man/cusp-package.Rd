@@ -5,7 +5,7 @@
 Cusp Catastrophe Modeling
 }
 \description{
-Fits cusp catastrophe to data using Cobb's maximum likelihood method with a different algorithm. The package contains  utility functions for plotting, and for comparing the model to linear regression and logistic curve models. The package allows for multivariate response subspace modelling in the sense of the GEMCAT software of Oliva et al.
+Fits cusp catastrophe to data using Cobb's maximum likelihood method with a different algorithm. The package contains  utility functions for plotting, and for comparing the model to linear regression and logistic curve models. The package allows for multivariate response subspace modeling in the sense of the GEMCAT software of Oliva et al.
 }
 \details{
 \tabular{ll}{
@@ -15,18 +15,18 @@ Version: \tab 2.0\cr
 Date: \tab 2008-02-14\cr
 License: \tab GNU GPL v2 (or higher)\cr
 }
-This package helps fitting Cusp catastrophy models to data, as advanced in Cobb et al. (1985). The main functions are
+This package helps fitting Cusp catastrophe models to data, as advanced in Cobb et al. (1985). The main functions are
 \tabular{ll}{
     \command{cusp} \tab Fit Cobb's Cusp catastrophe model; see example below.\cr
     \command{summary.cusp} \tab Summary statistics of cusp model fit.\cr
     \command{confint.cusp} \tab Confidence intervals for parameter estimates\cr
     \command{plot.cusp} \tab Diagnostic plots for cusp model fit\cr
     \command{cusp3d} \tab 3D graphical display of cusp model fit (experimental).\cr
-    \command{dcusp} \tab Density of Cobb's cusp distribtution\cr
+    \command{dcusp} \tab Density of Cobb's cusp distribution\cr
     \command{pcusp} \tab Cumulative probability function of Cobb's cusp distribution\cr
     \command{qcusp} \tab Quantile function of Cobb's cusp distribution\cr
     \command{rcusp} \tab Sample from Cobb's cusp distribution.\cr
-    \command{cusp.logist} \tab Fit logistic model for bifurctation testing (experimental)\cr
+    \command{cusp.logist} \tab Fit logistic model for bifurcation testing (experimental)\cr
 }
 }
 \author{
@@ -35,7 +35,7 @@ Raoul Grasman <rgrasman@uva.nl>
 \references{
 L. Cobb and S. Zacks (1985) \emph{Applications of Catastrophe Theory for Statistical Modeling in the Biosciences (article)}, Journal of the American Statistical Association, 392:793--802.
 
-P. Hartelman (1996). \emph{Stochastic Catastrophy Theory.} Unpublished PhD-thesis.
+P. Hartelman (1996). \emph{Stochastic Catastrophe Theory.} Unpublished PhD-thesis.
 
 H. L. J. van der Maas, R. Kolstein, and J van der Pligt (2003). \emph{Sudden Transitions in Attitudes}, Sociological Methods and Research, 32:125-152.
 
